@@ -13,15 +13,19 @@
 
 html, body {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .blur-overlay {
   position: fixed;
   top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: -1;
   backdrop-filter: blur(4px);
   background: rgba(0, 0, 0, 0.4); 
@@ -35,8 +39,6 @@ body {
     background-position: center;
     background-attachment: fixed;
     color: var(--primary-color);
-    height: 100vh;
-    overflow: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -79,6 +81,7 @@ header {
 header.scrolled {
     background: rgba(26, 26, 77, 0.8);
     backdrop-filter: blur(5px);
+    transition: background 0.6s ease, backdrop-filter 0.6s ease;
 }
 
 header .logo {
@@ -94,7 +97,7 @@ header .logo {
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2.9rem;
     text-align: center;
     position: absolute;
     left: 50%;
@@ -615,6 +618,12 @@ hours-list {
     }
 }
 
+@media (max-width: 550px) {
+    header h1 {
+        font-size: 1.9rem;
+    }
+}
+
 /* --- Appointment Booking--- */
 .appointment-section {
     background: rgba(233, 233, 233, 0.533);
@@ -688,3 +697,4 @@ hours-list {
         font-size: 1.9rem;
     }
 }
+

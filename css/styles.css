@@ -39,6 +39,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     color: var(--primary-color);
+    background-color: var(--primary-color);
 }
 
 body::-webkit-scrollbar {

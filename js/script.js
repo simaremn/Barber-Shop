@@ -12,21 +12,15 @@ hamburger.addEventListener('click', () => {
 document.getElementById('book-button')?.addEventListener('click', function() {
     window.location.href = 'html/appointment.html';
 });
-
-
-if (window.location.pathname.includes('contact.html') || window.location.pathname.includes('gallery.html') || window.location.pathname.includes('appointment.html')) {
-  document.body.style.overflowY = 'auto';
-} else {
-  document.body.style.overflow = 'hidden';
-}
-
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+//scrolling is in body ...
+document.body.addEventListener('scroll', () => {
+  const scrollTop = document.body.scrollTop;
+  const header = document.querySelector('header');
+  if (scrollTop > 10) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
 });
 
 document.querySelectorAll('.gallery-item').forEach(item => {

@@ -12,11 +12,11 @@ hamburger.addEventListener('click', () => {
 document.getElementById('book-button')?.addEventListener('click', function() {
     window.location.href = 'html/appointment.html';
 });
-//scrolling is in body ...
+//scrolling in body
 document.body.addEventListener('scroll', () => {
   const scrollTop = document.body.scrollTop;
   const header = document.querySelector('header');
-  if (scrollTop > 50) {
+  if (scrollTop > 10) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
@@ -34,7 +34,7 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Set min date/time to now, rounded up to next hour
+    // Set date/time
     const dtInput = document.getElementById('datetime');
     if (dtInput) {
         const now = new Date();
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dtInput.min = now.toISOString().slice(0,16);
     }
 
-    // Set min date to today
+    // Set date to today
     const dateInput = document.getElementById('date');
     const timeInput = document.getElementById('time');
     if (dateInput) {
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function populateTimeSlots(date) {
         if (!timeInput) return;
         let slots = [];
-        if (date.getDay() === 6) { // Saturday
+        if (date.getDay() === 6) {
             slots = ['09:00','10:00','11:00','12:00','13:00','14:00'];
         } else {
             slots = ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Set min date on load and populate time if date is already set
+    // Set populate time if date set
     if (dateInput && dateInput.value) {
         const selected = new Date(dateInput.value);
         if (selected.getDay() !== 0) {
